@@ -1,6 +1,8 @@
 #include<iostream>
 using namespace std;
 
+int numberEvenNumbers(int[], int);
+
 int main()
 {
     int size = 10;
@@ -36,19 +38,31 @@ int main()
     }
 
     cout << "Your total sum of the numbers is: " << sum << ".\n";
-    int mult = 0;
+
     for(int q = 0; q < size; q++)
     {
         if(q % 2 != 0)
         {   
             cout << x[q] << " "; //
-            mult = mult * x[q];
         }
     }
 
-    cout << "The mult of the even numbers are: " << mult << ".\n";
-    
+    numberEvenNumbers(x, size);
 
 
     return 0;
+}
+
+int numberEvenNumbers(int b[], int size)
+{
+    int count = 0;
+    for(int i = 0; i < size; i++)
+    {
+        if(b[i] % 2 == 0)
+        {
+            count++;
+        }
+    }
+
+    return count;
 }

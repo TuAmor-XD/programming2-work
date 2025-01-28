@@ -2,6 +2,7 @@
 using namespace std;
 
 int numberEvenNumbers(int[], int);
+int addEvenNumbers(int[], int);
 
 int main()
 {

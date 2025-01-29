@@ -46,6 +46,7 @@ void printOdd(int c[], int size)
             cout << c[i] << " ";
         }
     }
+    cout << endl;
    
 }
 

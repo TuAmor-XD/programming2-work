@@ -1,12 +1,11 @@
 #include <iostream>
 using namespace std;
 
-const int SIZE = 10;
-
 void displayArray(int arr[], int size);
 
 int main() 
 {
+    int SIZE = 10;
     int array1[SIZE];
     int array2[SIZE] = {0};
     int array2Size = 0;

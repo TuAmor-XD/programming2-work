@@ -1,0 +1,1 @@
+//9.	Replace Element: Write a function that replaces all occurrences of a given value with another value.

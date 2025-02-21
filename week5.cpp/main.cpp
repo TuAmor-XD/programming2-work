@@ -1,32 +1,44 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-
-int sumOfColumns(const int [][3], int, int);
+const int COL = 3;
+int sumOfColumns(int [][COL], int, int); 
 
 int main()
 {
     const int rows = 5;
     const int cols = 3;
-    const int arr[rows][cols] = {{1,2,3},{4,5,6},{7,8,9},{10,11,12},{}};
+    int arr[rows][cols] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {10, 11, 12}, {0, 0, 0}}; 
 
-    int result = sumOfColumns(arr, rows, cols);
-    cout << result << endl;
+    sumOfColumns(arr, rows, cols);
+
+    for (int r = 0; r < rows; r++)
+    {
+        for (int c = 0; c < cols; c++)
+        {
+            cout << arr[r][c] << " ";
+        }
+        cout << endl;
+    }
 
     return 0;
 }
 
-int sumOfColumns(const int a[][3], int row, int col)
+int sumOfColumns(int a[][COL], int row, int col)
 {
-    int sum = 0;
-    const int rows = 0;
-    const int cols = 0;
-    for(int rows = 0; rows < row - 1; rows++)
+    int firstColumnSum = 0;
+    for(int c = 0; c < col; c++)
     {
-        for(int cols = 0; cols < col; cols++)
+        int sum = 0;
+        for(int r = 0; r < row; r++)
         {
-            sum += a[rows][cols];
+            sum += a[r][c];
+            if(c == 0)
+            {
+                firstColumnSum += a[r][c];
+            }
         }
+        a[row - 1][c] = sum;
     }
-    return 0;
+    return firstColumnSum;
 }

@@ -47,19 +47,7 @@ void Node::printList(Node* head) const
     }
 }
 
-// int Node::countList(Node* head) const
-// {
-//     int count = 0;
-//     Node* current = head;
-//     while(current != nullptr)
-//     {
-//         count++;
-//         current = current->next;
-//     }
-//     return count;
-// }
-
-int Node :: countList(Node* head) const
+int Node::countList(Node* head) const
 {
     int count = 0;
     Node* current = head;
@@ -71,15 +59,29 @@ int Node :: countList(Node* head) const
     return count;
 }
 
-void Node::printAbove20(Node* head) const
+// void Node::printAbove20(Node* head) const
+// {
+//     int agex = 20;
+//     Node* current = head;
+//     while(current != nullptr)
+//     {
+//         if(current-> age > agex)
+//         {
+//             cout << current->name << endl;
+//         }
+//         current = current->next;
+//     }
+// }
+
+void Node :: printAbove20(Node* head) const
 {
     int agex = 20;
     Node* current = head;
     while(current != nullptr)
     {
-        if(current-> age > agex)
+        if(current->age > agex)
         {
-            cout << current->name << endl;
+            cout<<current->name<<endl;
         }
         current = current->next;
     }

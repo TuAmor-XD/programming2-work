@@ -1,29 +1,38 @@
 #ifndef NODE_H
 #define NODE_H
 
-class Node 
-{
+class Node {
 private:
+    // Data members (private)
     int number;
     Node* next;
 
 public:
-    Node(int num); 
+    // Constructor
+    Node(int num);  // Constructor to initialize number and next
 
-    int getNumber() ;
-    void setNumber(int num); 
-    Node* getNext() ;  
-    void setNext(Node* nextNode);
+    // Getters and Setters
+    int getNumber() ;    // Getter for number
+    void setNumber(int num);  // Setter for number
+
+    Node* getNext() ;    // Getter for next pointer
+    void setNext(Node* nextNode);  // Setter for next pointer
+
+      // Function to print out the list from a given node
     void printList(Node* head);
+
+    // Function to replace all occurrences of old number with new number
     void replaceAll(Node* head, int oldNumber, int newNumber);
+
+    // Function to search for a number in the list
     bool search(Node* head, int num);
 
     //Function to print odd numbers
     void printOdd(Node* head);
     //function to find the largest number in the list
-    int findLargest(Node* head);
-   
+    int largest(Node* head);
     //function to find the sum of numbers in the list
+    int sum(Node* head);
    
     //function to swap the numbers (you are not swapping the nodes) in the first and last nodes
     void swap(Node *first, Node *last);
@@ -35,15 +44,14 @@ public:
 #include <iostream>
 using namespace std;
 
-Node::Node(int num) 
-{
+// Constructor to initialize the number and next pointer
+Node::Node(int num) {
     number = num;
-    next = nullptr; 
+    next = nullptr;  // By default, the next pointer is set to nullptr
 }
 
 // Getter for number
-int Node::getNumber()  
-{  
+int Node::getNumber()  {
     return number;
 }
 
@@ -63,8 +71,7 @@ void Node::setNext(Node* nextNode) {
 }
 
 // Function to print out the list starting from the head node
-void Node::printList(Node* head) 
-{
+void Node::printList(Node* head) {
     Node* current = head;
     while (current != nullptr) {
         cout << current->number << " ";  // Print the current node's number
@@ -76,15 +83,15 @@ void Node::printList(Node* head)
 // Function to replace all occurrences of old number with new number
 void Node::replaceAll(Node* head, int oldNumber, int newNumber) 
 {
-    Node* current = head;
-    while(current != nullptr)
+   Node* current = head;
+   while(current != nullptr)
+   {
+    if(current->number == oldNumber)
     {
-        if(current->number == oldNumber)
-        {
-            current->number = newNumber;
-        }
-        current = current->next;
+        current->number = newNumber;
     }
+    current = current->next;
+   }
 }
 
 // Function to search for a number in the list
@@ -103,9 +110,9 @@ bool Node::search(Node* head, int num)
 }
 
 //Function to print odd numbers
-void Node::printOdd(Node* head)
+void Node :: printOdd(Node* head)
 {
-    Node*current = head;
+    Node* current = head;
     bool foundOdd = false;
     while(current != nullptr)
     {
@@ -124,7 +131,7 @@ void Node::printOdd(Node* head)
 }
 
 //function to find the largest number in the list
-int Node::findLargest(Node* head)
+int Node :: largest(Node* head)
 {
     int largest = head->number;
     Node* current = head->next;
@@ -140,17 +147,27 @@ int Node::findLargest(Node* head)
 }
    
 //function to find the sum of numbers in the list
+int Node :: sum(Node* head)
+{
+    int total = 0;
+    Node* current = head;
+        while(current != nullptr)
+        {
+            total += current->number;
+            current = current->next;
+        }
+    return total;
+}
 
 // Function to swap the numbers of the first and last node (not the nodes themselves)
 void Node::swap(Node* first, Node* last) 
 {
-    if(first != nullptr || last != nullptr)
-    {
+   if(first != nullptr || last != nullptr)
+   {
         int temp = first->number;
         first->number = last->number;
         last->number = temp;
-
-    }
+   }
 }
 
    
@@ -176,13 +193,15 @@ int main() {
     cout << "After swapping first and last node numbers: ";
     node1.printList(&node1);
 
-    cout << "Largest number: " << node1.findLargest(&node1) << endl;    
+    //Call function to find Largest numbers
+    cout << node1.largest(&node1) << endl;
    
     //Call function to print odd numbers
     node1.printOdd(&node1);
    
     //call function to get the sum of all numbers
-   
+    node1.sum(&node1);
+
     //delete the last node
     node2.setNext(nullptr);
     node1.printList(&node1);

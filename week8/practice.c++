@@ -158,7 +158,7 @@ int main() {
     cout << "Largest number: " << node1.findLargest(&node1) << endl;
 
     // Test printOddNumbers
-    node1.printOdd&node1);
+    node1.printOdd(&node1);
 
     // Test sum
     cout << "Sum of numbers: " << node1.sum(&node1) << endl;
